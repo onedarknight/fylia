@@ -25,6 +25,10 @@ import javax.ws.rs.core.Response.Status;
  
 import com.tmrnd.fylia.db.EmployeeDB;
 import com.tmrnd.fylia.api.Employee;
+import com.tmrnd.fylia.auth.AuthUser;
+import io.dropwizard.auth.Auth;
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
  
 @Path("/employees")
 @Produces(MediaType.APPLICATION_JSON)
@@ -36,14 +40,17 @@ public class EmployeeResource {
         this.validator = validator;
     }
  
+    @PermitAll
     @GET
-    public Response getEmployees() {
+    public Response getEmployees(@Auth AuthUser user) {
         return Response.ok(EmployeeDB.getEmployees()).build();
     }
  
+    
+    @RolesAllowed({"ADMIN"})
     @GET
     @Path("/{id}")
-    public Response getEmployeeById(@PathParam("id") Integer id) {
+    public Response getEmployeeById(@PathParam("id") Integer id,@Auth AuthUser user) {
         Employee employee = EmployeeDB.getEmployee(id);
         if (employee != null)
             return Response.ok(employee).build();
