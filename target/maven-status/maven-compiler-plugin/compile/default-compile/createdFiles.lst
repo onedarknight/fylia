@@ -1,0 +1,5 @@
+com\tmrnd\fylia\db\EmployeeDB.class
+com\tmrnd\fylia\api\Employee.class
+com\tmrnd\fylia\FyliaConfiguration.class
+com\tmrnd\fylia\resources\EmployeeResource.class
+com\tmrnd\fylia\FyliaApplication.class
