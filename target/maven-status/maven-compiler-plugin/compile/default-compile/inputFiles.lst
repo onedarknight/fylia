@@ -4,5 +4,8 @@ C:\work\fylia\development\fylia\src\main\java\com\tmrnd\fylia\FyliaConfiguration
 C:\work\fylia\development\fylia\src\main\java\com\tmrnd\fylia\auth\AuthUser.java
 C:\work\fylia\development\fylia\src\main\java\com\tmrnd\fylia\FyliaApplication.java
 C:\work\fylia\development\fylia\src\main\java\com\tmrnd\fylia\resources\EmployeeResource.java
+C:\work\fylia\development\fylia\src\main\java\com\tmrnd\fylia\client\RestClient.java
 C:\work\fylia\development\fylia\src\main\java\com\tmrnd\fylia\auth\FyliaAuthorizer.java
+C:\work\fylia\development\fylia\src\main\java\com\tmrnd\fylia\resources\FyliaHealthCheckResource.java
 C:\work\fylia\development\fylia\src\main\java\com\tmrnd\fylia\auth\FyliaAuthenticator.java
+C:\work\fylia\development\fylia\src\main\java\com\tmrnd\fylia\health\FyliaHealthCheck.java
