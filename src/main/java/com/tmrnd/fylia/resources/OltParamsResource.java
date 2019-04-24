@@ -23,11 +23,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import com.tmrnd.fylia.db.OltParamsDB;
- 
-import com.tmrnd.fylia.db.EmployeeDB;
-import com.tmrnd.fylia.api.Employee;
 import com.tmrnd.fylia.auth.AuthUser;
-import devicelayer.SnmpGet;
+import com.tmrnd.fylia.snmp.SnmpGet;
 import io.dropwizard.auth.Auth;
 import java.io.IOException;
 import javax.annotation.security.PermitAll;

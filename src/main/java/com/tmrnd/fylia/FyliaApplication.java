@@ -1,9 +1,7 @@
 package com.tmrnd.fylia;
 
 
-import com.tmrnd.fylia.client.RestClient;
 import com.tmrnd.fylia.health.FyliaHealthCheck;
-import com.tmrnd.fylia.resources.EmployeeResource;
 import com.tmrnd.fylia.resources.FyliaHealthCheckResource;
 import com.tmrnd.fylia.resources.OltParamsResource;
 import io.dropwizard.Application;
@@ -36,16 +34,9 @@ public class FyliaApplication extends Application<FyliaConfiguration> {
     public void run(final FyliaConfiguration configuration,
                     final Environment environment) {
         
-        LOGGER.info("FYLIA : Registering REST resources");
-        environment.jersey().register(new EmployeeResource(environment.getValidator()));
-        
         LOGGER.info("FYLIA : Registering OLT Parameters REST resources");
         environment.jersey().register(new OltParamsResource(environment.getValidator()));
-        
-        final Client client = new JerseyClientBuilder(environment).build("DemoRESTClient");
-        environment.jersey().register(new RestClient(client));
-        
-        environment.healthChecks().register("APIHealthCheck", new FyliaHealthCheck(client));
+      
         environment.jersey().register(new FyliaHealthCheckResource(environment.healthChecks()));
     }
 }
