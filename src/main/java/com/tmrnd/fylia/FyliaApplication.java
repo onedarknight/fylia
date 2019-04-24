@@ -7,6 +7,7 @@ import com.tmrnd.fylia.client.RestClient;
 import com.tmrnd.fylia.health.FyliaHealthCheck;
 import com.tmrnd.fylia.resources.EmployeeResource;
 import com.tmrnd.fylia.resources.FyliaHealthCheckResource;
+import com.tmrnd.fylia.resources.OltParamsResource;
 import io.dropwizard.Application;
 import io.dropwizard.auth.AuthDynamicFeature;
 import io.dropwizard.auth.AuthValueFactoryProvider;
@@ -46,10 +47,12 @@ public class FyliaApplication extends Application<FyliaConfiguration> {
         LOGGER.info("FYLIA : Registering REST resources");
         environment.jersey().register(new EmployeeResource(environment.getValidator()));
         
+        LOGGER.info("FYLIA : Registering OLT Parameters REST resources");
+        environment.jersey().register(new OltParamsResource(environment.getValidator()));
+        
         //final HttpClient client = new HttpClientBuilder(e).build("DemoRESTClient");
         final Client client = new JerseyClientBuilder(environment).build("DemoRESTClient");
         environment.jersey().register(new RestClient(client));
-        
         
 //        environment.jersey().register(new AuthDynamicFeature(new BasicCredentialAuthFilter.Builder<AuthUser>()
 //                                .setAuthenticator(new FyliaAuthenticator())
@@ -63,5 +66,4 @@ public class FyliaApplication extends Application<FyliaConfiguration> {
         environment.jersey().register(new FyliaHealthCheckResource(environment.healthChecks()));
         // TODO: implement application
     }
-
 }
